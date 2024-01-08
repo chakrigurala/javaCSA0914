@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class SpecialCharacterPrinter {
+    public static void main(String[] args) {
+        // Create a Scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter a string
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+
+        // Call the method to print special characters
+        printSpecialCharacters(inputString);
+
+        // Close the Scanner
+        scanner.close();
+    }
+
+    // Method to print all special characters in a string
+    private static void printSpecialCharacters(String inputString) {
+        // Iterate through each character in the input string
+        for (int i = 0; i < inputString.length(); i++) {
+            char ch = inputString.charAt(i);
+
+            // Check if the character is a special character
+            if (!Character.isLetterOrDigit(ch) && !Character.isWhitespace(ch)) {
+                System.out.println("Special Character: " + ch);
+            }
+        }
+    }
+}
