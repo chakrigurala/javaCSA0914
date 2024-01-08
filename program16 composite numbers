@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class CompositeNumberPrinter {
+    public static void main(String[] args) {
+        // Create a Scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the range of numbers
+        System.out.print("Enter the starting number: ");
+        int start = scanner.nextInt();
+
+        System.out.print("Enter the ending number: ");
+        int end = scanner.nextInt();
+
+        // Call the method to print composite numbers
+        printCompositeNumbers(start, end);
+
+        // Close the Scanner
+        scanner.close();
+    }
+
+    // Method to check if a number is composite
+    private static boolean isComposite(int num) {
+        if (num < 2) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // Method to print composite numbers in a range
+    private static void printCompositeNumbers(int start, int end) {
+        System.out.println("Composite numbers between " + start + " and " + end + ":");
+        for (int i = start; i <= end; i++) {
+            if (isComposite(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println(); // Move to the next line after printing the numbers
+    }
+}
